@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest # Образ MongoDB
+    container_name: mongodb_container
+    ports:
+      - "27017:27017" # Проброс порта на хост-машину
+    environment:
+      MONGO_INITDB_ROOT_USERNAME:  # Имя пользователя
+      MONGO_INITDB_ROOT_PASSWORD:  # Пароль
+    volumes:
+      - mongodb_data:/data/db # Хранилище данных MongoDB
+
+volumes:
+  mongodb_data: # Объявление имени для хранилища данных
